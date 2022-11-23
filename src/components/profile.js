@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 
-const profilePage = () => {
+const ProfilePage = () => {
     const [personalProfile, setPersonalProfile] = useState([]);
     const [items, setItems] = useState([]);
     const navigate = useNavigate();
@@ -52,4 +52,4 @@ const profilePage = () => {
     )
 }
 
-export default profilePage;
+export default ProfilePage;

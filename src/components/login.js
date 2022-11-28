@@ -21,9 +21,9 @@ const Login = () => {
                 }),
             })
 
-           const data = await response.json();
-           localStorage.setItem("token", data.data.token ) 
-           console.log(data.data.token)
+           const data = await response.json(); // jeremy: try a bit of destructuring here.
+           localStorage.setItem("token", data.data.token ) // jeremy: so you can use it here more easily
+           console.log(data.data.token)// jeremy: and here.
            console.log(data)
         } catch (error) {
             console.log(error)
@@ -32,7 +32,7 @@ const Login = () => {
 
 
     const changeUsername = (event) => {
-        setUsername(event.target.value)
+        setUsername(event.target.value) // jeremy: better to have an input value that you change "onChange".
     }
 
     const changePassword = (event) => {
@@ -43,7 +43,7 @@ const Login = () => {
 
     return(
         <div>
-            <form onSubmit={loginFunc} >
+            <form onSubmit={loginFunc} > {/* jeremy: which you use here on submit event: setUsername(inputUsername) for example */}
                 <div>Username: </div>
                 <input type = "text" value={username}  onChange = {changeUsername} className="registerUser"   ></input>
                 <div>Password: </div>

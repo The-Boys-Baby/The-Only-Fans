@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-
+// jeremy: decide if you want products listed on the "homepage" or not (maybe dashboard? but that's profile).
 
 const Homepage = () => {
     return (

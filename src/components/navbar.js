@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+// jeremy: from app.js --> decide to send props in for user - admin, user, guest - and show a nav based on each one. It's UI/UX 101.
+
 const Navbar = () => {
     return (
         <div>

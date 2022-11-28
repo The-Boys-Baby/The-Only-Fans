@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 
+//jeremy: Register and Login are pretty similar, consider later merging them into one and how you would do that.
+
 const Register = () => {
 
     const [password, setPassword] = useState()
     const [username, setUsername] = useState()
-    async function registerHandler (event){
+    async function registerHandler (event){ //usually the convention is "handleVerb", in this case "handleSubmit" or "handleRegister"
         event.preventDefault();
         try {
             const response = await fetch("",
@@ -32,7 +34,7 @@ const Register = () => {
 
 
     const changeUsername = (event) => {
-        setUsername(event.target.value)
+        setUsername(event.target.value) //jeremy: see login.js
     }
 
     const changePassword = (event) => {

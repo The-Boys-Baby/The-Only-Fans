@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import routes from "../routes";
 
 const Profile = () => {
   const [personalProfile, setPersonalProfile] = useState([]);
   const [items, setItems] = useState([]);
   const navigate = useNavigate();
+  const { devHost, profile } = routes;
 
   function logOut(event) {
     localStorage.removeItem("token");
@@ -13,12 +15,12 @@ const Profile = () => {
 
   useEffect(() => {
     if (!localStorage.getItem("token")) {
-        navigate("/Login");
-      }
+      navigate("/Login");
+    }
     if (localStorage.getItem("token")) {
       async function fetchProfileData() {
         try {
-          const response = await fetch("https://localhost:1337/api/users/:id", {
+          const response = await fetch(`${devHost}${profile}`, {
             headers: {
               "Content-Type": "application/json",
               Authorization: `Bearer ${localStorage.getItem("token")}`,

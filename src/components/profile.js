@@ -37,14 +37,11 @@ const Profile = () => {
       fetchProfileData();
     }
   }, []);
-
   return (
     <div>
       <div>
         <h2>Your Profile</h2>
-        <button variant="contained" onClick={logOut}>
-          Log Out
-        </button>
+        <button onClick={logOut}>Log Out</button>
       </div>
     </div>
   );

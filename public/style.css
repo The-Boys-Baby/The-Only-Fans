@@ -1,0 +1,167 @@
+header {
+  font-size: xx-large;
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  padding-bottom: 1em;
+}
+body {
+  font-family: "Yanone Kaffeesatz", sans-serif;
+}
+.headerBox {
+  display: flex;
+  justify-content: center;
+}
+
+.navBox {
+  display: flex;
+  justify-content: center;
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  flex-direction: row;
+  height: 10vh;
+}
+
+nav {
+  padding: 5px;
+  justify-content: space-between;
+  margin: 10px;
+  flex-direction: row;
+  display: flex;
+}
+
+.navItem {
+  display: flex;
+  height: fit-content;
+  flex-direction: column;
+  padding: 1em;
+  margin: 5px;
+  color: rgb(40, 113, 144);
+  border-radius: 1em;
+  text-decoration: none;
+  justify-content: space-evenly;
+  -webkit-filter: drop-shadow(5px 5px 5px rgba(92, 92, 92, 0));
+}
+.navtext {
+  display: none;
+  margin-top: 5px;
+}
+
+.navItem:hover {
+  padding: 1em;
+  margin: 5px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(40, 113, 144);
+  border-radius: 1em;
+  -webkit-filter: drop-shadow(5px 5px 5px rgb(92, 92, 92));
+  height: fit-content;
+  width: fit-content;
+  content: "store";
+}
+
+.navItem:hover > .navtext {
+  display: block;
+  color: white;
+  margin-top: 5px;
+}
+
+.loginBoxBox {
+  margin-top: 10em;
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  justify-content: center;
+  display: grid;
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-size: large;
+  width: fit-content;
+}
+input {
+  display: flex;
+  justify-content: center;
+  border-radius: 1em;
+}
+
+.loginInput {
+  margin-top: 3em;
+  justify-content: center;
+}
+.registerButton {
+  margin: 10px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(40, 113, 144);
+  border-radius: 1em;
+  transition: 0.5s;
+  -webkit-filter: drop-shadow(10px 10px 10px rgb(0, 0, 0));
+  width: fit-content;
+}
+.registerButton:before {
+  content: "Sign up now!";
+}
+.registerButton:hover {
+  cursor: pointer;
+  padding-right: 24px;
+  padding-left: 8px;
+}
+.registerButton:hover:after {
+  opacity: 1;
+  right: 10px;
+}
+.registerButton:after {
+  content: "  »";
+  position: absolute;
+  opacity: 0;
+  right: -20px;
+  transition: 0.5s;
+  color: rgb(255, 255, 255);
+}
+
+.submitButton {
+  margin: 10px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(40, 113, 144);
+  border-radius: 1em;
+  transition: 0.5s;
+  -webkit-filter: drop-shadow(10px 10px 10px rgb(0, 0, 0));
+  width: fit-content;
+}
+.submitButton:before {
+  content: "Submit";
+}
+.submitButton:hover {
+  cursor: pointer;
+  padding-right: 24px;
+  padding-left: 8px;
+}
+
+.submitButton:hover:after {
+  opacity: 1;
+  right: 10px;
+}
+.submitButton:after {
+  content: "  »";
+  position: absolute;
+  opacity: 0;
+  right: -20px;
+  transition: 0.5s;
+  color: rgb(255, 255, 255);
+}
+
+input:required:focus {
+  border: 2px solid rgb(0, 153, 255);
+  outline: none;
+}
+
+.usernameInput {
+  margin-bottom: 0.25em;
+}
+
+.passwordInput {
+  margin-bottom: 0.25em;
+}
+
+input {
+  margin-bottom: 1em;
+}
+.loginInput {
+  border-radius: 1em;
+}

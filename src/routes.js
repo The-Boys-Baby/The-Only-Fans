@@ -1,8 +1,8 @@
 export default {
-  devHost: "https://localhost:1337/api/",
+  devHost: "http://localhost:1337/api/",
   profile: "users/:id",
   cart: "users/:userId/cart",
-  checkout: "users/checkout/:userId",
+  checkout: (userId) => `users/${userId}/checkout`, //${checkout(id)}
   register: "users/register",
   login: "users/login",
   marketplace: "products",

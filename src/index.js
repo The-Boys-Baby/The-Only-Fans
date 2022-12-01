@@ -2,12 +2,18 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./app";
-import Homepage from "./components/Homepage";
-import Errorpage from "./components/Errorpage";
-import Fans from "./components/Marketplace";
-import Profile from "./components/Profile";
-import Register from "./components/Register";
-import Login from "./components/Login";
+import Homepage from "./components/homepage";
+import Errorpage from "./components/errorpage";
+import Fans from "./components/marketplace";
+import Profile from "./components/profile";
+import Register from "./components/register";
+import Login from "./components/login";
+// import Homepage from './components/homepage';
+// import Errorpage from './components/errorpage';
+// import Fans from "./components/marketplace";
+// import Profile from './components/profile';
+// import Register from './components/register';
+// import Login from './components/login';
 
 const router = createBrowserRouter([
   {

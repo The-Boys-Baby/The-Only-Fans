@@ -8,7 +8,7 @@ import Fans from "./components/Marketplace";
 import Profile from "./components/Profile";
 import Register from "./components/Register";
 import Login from "./components/Login";
-
+import IndivFans from "./components/Singlemarketplace";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +40,10 @@ const router = createBrowserRouter([
         path: "Login",
         element: <Login />,
       },
+      {
+        path: "Fans/:productId",
+        element:< IndivFans />
+      }
     ],
   },
 ]);

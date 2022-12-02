@@ -42,6 +42,7 @@ const Fans = () => {
                                     <p>{fan.price}</p>
                                     <p>{fan.description}</p>
                                     <img src={fan.pictures} alt={fan.name}/>
+                                    <Link to = {`/fans/${fan.id}`}>Go to products</Link>
                                 </div>
                         )
                     })

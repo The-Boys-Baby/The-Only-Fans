@@ -31,7 +31,7 @@ const Profile = () => {
           setPersonalProfile(data);
         } catch (error) {
           console.log(error);
-          navigate("/profile");
+          navigate("/Profile");
         }
       }
       fetchProfileData();

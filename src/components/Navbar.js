@@ -8,7 +8,7 @@ const Navbar = () => {
     <div>
       <div>
         <div className="headerBox">
-          <img src={OFlogo} />
+          <Link to="/"><img src={OFlogo} /></Link>
         </div>
         <div className="navBox">
           <nav>

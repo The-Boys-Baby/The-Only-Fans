@@ -1,13 +1,14 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import OFlogo from "../Images/OF.png";
+
 
 const Navbar = () => {
   return (
     <div>
       <div>
         <div className="headerBox">
-          <img src={OFlogo} />
+          <Link to="/"><img src={OFlogo} /></Link>
         </div>
         <div className="navBox">
           <nav>
@@ -28,6 +29,11 @@ const Navbar = () => {
                 <polyline points="9 22 9 12 15 12 15 22"></polyline>
               </svg>{" "}
               <span className="navtext">Home</span>
+            </Link>
+            {!localStorage.getItem("token") ? <div className="headerBox"><Link id="homenav" className="navItem" to="/Register">
+              {"  "}
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect><path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-.5"></path><path d="M16 4h2a2 2 0 0 1 1.73 1"></path><path d="M18.42 9.61a2.1 2.1 0 1 1 2.97 2.97L16.95 17 13 18l.99-3.95 4.43-4.44Z"></path><path d="M8 18h1"></path></svg>
+              <span className="navtext">Register</span>
             </Link>
             <Link id="homenav" className="navItem" to="Login">
               {" "}
@@ -64,7 +70,7 @@ const Navbar = () => {
                 <path d="M12 12v.01"></path>
               </svg>
               <span className="navtext">Profile</span>
-            </Link>
+            </Link> </div>: null}
             <Link id="homenav" className="navItem" to="Fans">
               {" "}
               <svg

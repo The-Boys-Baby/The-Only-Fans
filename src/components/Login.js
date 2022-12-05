@@ -1,28 +1,33 @@
 import React, { useState, useEffect } from "react";
+import routes from "../routes";
+import {useNavigate} from "react-router-dom"
 
 const Login = () => {
   const [password, setPassword] = useState();
   const [username, setUsername] = useState();
+  const {devHost, login} = routes
+  const navigate = useNavigate()
   async function loginFunc(event) {
     event.preventDefault();
     try {
-      const response = await fetch("", {
+      const response = await fetch(`${devHost}${login}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          user: {
+          
             username: username,
-            password: username,
-          },
+            password: password
+          
         }),
       });
 
       const data = await response.json();
-      localStorage.setItem("token", data.data.token);
-      console.log(data.data.token);
-      console.log(data);
+      localStorage.setItem("token", data.token);
+      if(data.token){
+
+      }
     } catch (error) {
       console.log(error);
     }
@@ -35,6 +40,9 @@ const Login = () => {
   const changePassword = (event) => {
     setPassword(event.target.value);
   };
+  const goTo = () => {
+    navigate("/Register")
+  }
 
   return (
     <div className="loginBoxBox">
@@ -60,7 +68,7 @@ const Login = () => {
           </button>
         </form>
         <h3> Don't have an account?</h3>
-        <button className="registerButton"></button>
+        <button className="registerButton" onClick={goTo}></button>
       </div>
     </div>
   );

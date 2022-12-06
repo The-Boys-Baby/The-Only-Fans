@@ -29,13 +29,11 @@ const Register = () => {
           }),
         });
         const data = await response.json();
-
-        if (data.status == "Successful") {
-        localStorage.setItem("token", data.token);
-        
-        }
         console.log(data);
         if (data.token) {
+          localStorage.setItem("token", data.token);
+          setUser(data.user);
+          setIsAdmin(data.user.isAdmin);
           navigate("/");
         } else {
           console.log(data.message);
@@ -66,54 +64,64 @@ const Register = () => {
     <div className="registerBox">
       <div className="register">
         <h1>Register</h1>
-        <form onSubmit={registerHandler}>          
-          <label>Username: 
-          <input
-            type="text"
-            value={username}
-            required
-            minLength={8}
-            onChange={changeUsername}
-            className="registerUser"
-            placeholder="New Username..."
-          ></input></label>
-          <label>Password: 
-          <input
-            type="password"
-            value={password}
-            required
-            minLength={8}
-            onChange={changePassword}
-            className="registerPass"
-            placeholder="New Password..."
-          ></input></label>
-          <label>First Name: 
-          <input
-            type="text"
-            value={firstName}
-            required
-            onChange={changeFirstName}
-            className="registerUser"
-            placeholder="First Name..."
-          ></input></label>
-          <label>Last Name: 
-          <input
-            type="text"
-            value={lastName}
-            required
-            onChange={changeLastName}
-            className="registerPass"
-            placeholder="Last Name..."
-          ></input></label>
-          <label>Email: 
-          <input
-            type="email"
-            value={email}
-            required
-            onChange={changeEmail}
-            className="registerUser"
-            placeholder="Email..."
-          ></input></label>
+        <form onSubmit={registerHandler}>
+          <label>
+            Username:
+            <input
+              type="text"
+              value={username}
+              required
+              minLength={8}
+              onChange={changeUsername}
+              className="registerUser"
+              placeholder="New Username..."
+            ></input>
+          </label>
+          <label>
+            Password:
+            <input
+              type="password"
+              value={password}
+              required
+              minLength={8}
+              onChange={changePassword}
+              className="registerPass"
+              placeholder="New Password..."
+            ></input>
+          </label>
+          <label>
+            First Name:
+            <input
+              type="text"
+              value={firstName}
+              required
+              onChange={changeFirstName}
+              className="registerUser"
+              placeholder="First Name..."
+            ></input>
+          </label>
+          <label>
+            Last Name:
+            <input
+              type="text"
+              value={lastName}
+              required
+              onChange={changeLastName}
+              className="registerPass"
+              placeholder="Last Name..."
+            ></input>
+          </label>
+          <label>
+            Email:
+            <input
+              type="email"
+              value={email}
+              required
+              onChange={changeEmail}
+              className="registerUser"
+              placeholder="Email..."
+            ></input>
+          </label>
           <button className="registerButton" type="submit"></button>
         </form>
       </div>

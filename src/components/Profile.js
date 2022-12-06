@@ -3,45 +3,48 @@ import { Link, useNavigate, useOutletContext } from "react-router-dom";
 import routes from "../routes";
 
 const Profile = () => {
- const {userState: [user, setUser], adminState: [isAdmin, setIsAdmin] } = useOutletContext();
+  const {
+    userState: [user, setUser],
+    adminState: [isAdmin, setIsAdmin],
+  } = useOutletContext();
   const [items, setItems] = useState([]);
   const navigate = useNavigate();
   const { devHost, profile } = routes;
 
   function logOut(event) {
     localStorage.removeItem("token");
+    setUser({});
+    setIsAdmin(false);
     navigate("/");
   }
 
   useEffect(() => {
-    if (!localStorage.getItem("token")) {
+    if (!user.id) {
       navigate("/Login");
-    }
-    if (localStorage.getItem("token")) {
-      async function fetchProfileData() {
-        try {
-          const response = await fetch(`${devHost}${profile}`, {
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${localStorage.getItem("token")}`,
-            },
-          });
-          const data = await response.json();
-          console.log("This is the profile data: ", data);
-          setUser(data);
-        } catch (error) {
-          console.log(error);
-          navigate("/Profile");
-        }
-      }
-      fetchProfileData();
+    } else {
+      // async function fetchProfileData() {
+      //   try {
+      //     const response = await fetch(`${devHost}${profile}`, {
+      //       headers: {
+      //         "Content-Type": "application/json",
+      //         Authorization: `Bearer ${localStorage.getItem("token")}`,
+      //       },
+      //     });
+      //     const data = await response.json();
+      //     console.log("This is the profile data: ", data);
+      //     setUser(data);
+      //   } catch (error) {
+      //     console.log(error);
+      //     navigate("/Profile");
+      //   }
+      // fetchProfileData();
     }
   }, []);
-  useEffect(() =>  {
-    if(user.isAdmin){
-      setIsAdmin(true)
+  useEffect(() => {
+    if (user.isAdmin) {
+      setIsAdmin(true);
     }
-  }, [user])
+  }, [user]);
   return (
     <div>
       <div>

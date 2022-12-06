@@ -121,6 +121,34 @@ input {
   color: rgb(255, 255, 255);
 }
 
+.adminButton {
+  margin: 10px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(40, 113, 144);
+  border-radius: 1em;
+  transition: 0.5s;
+  -webkit-filter: drop-shadow(10px 10px 10px rgb(0, 0, 0));
+  width: fit-content;
+}
+
+.adminButton:hover {
+  cursor: pointer;
+  padding-right: 24px;
+  padding-left: 8px;
+}
+.adminButton:hover:after {
+  opacity: 1;
+  right: 10px;
+}
+.adminButton:after {
+  content: "  »";
+  position: absolute;
+  opacity: 0;
+  right: -20px;
+  transition: 0.5s;
+  color: rgb(255, 255, 255);
+}
+
 .submitButton {
   margin: 10px;
   color: rgb(255, 255, 255);
@@ -272,4 +300,14 @@ button {
 .key {
   display: flex;
   width: 100%;
+}
+
+.userStuff {
+  display: flex;
+  align-items: left;
+  width: 90vw;
+  height: 80vh;
+  overflow: scroll;
+  padding: auto;
+  flex-direction: column;
 }

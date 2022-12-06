@@ -1,5 +1,6 @@
 export default {
   devHost: "http://localhost:1337/api/",
+  users: "admin/getUsers",
   profile: "users/:id",
   cart: "users/:userId/cart",
   checkout: (userId) => `users/${userId}/checkout`, //${checkout(id)}

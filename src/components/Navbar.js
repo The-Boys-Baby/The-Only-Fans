@@ -54,6 +54,7 @@ const Navbar = () => {
               </svg>{" "}
               <span className="navtext">Login</span>
             </Link>
+            </div>: null}
             <Link id="homenav" className="navItem" to="Profile">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -70,7 +71,7 @@ const Navbar = () => {
                 <path d="M12 12v.01"></path>
               </svg>
               <span className="navtext">Profile</span>
-            </Link> </div>: null}
+            </Link>
             <Link id="homenav" className="navItem" to="Fans">
               {" "}
               <svg

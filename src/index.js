@@ -10,6 +10,7 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 import IndivFans from "./components/Singlemarketplace";
 import Checkout from "./components/Checkout";
+import Users from './components/Users'
 
 const router = createBrowserRouter([
   {
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
       {
         path: "Checkout",
         element: <Checkout />
+      },
+      {
+        path: "Users",
+        element: <Users />
       }
     ],
   },

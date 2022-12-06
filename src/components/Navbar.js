@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import OFlogo from "../Images/OF.png";
 
 
-const Navbar = () => {
+const Navbar = ({contextObject}) => {
+  const {adminState: [isAdmin, setIsAdmin], userState: [user, setUser]} = contextObject;
   return (
     <div>
       <div>
@@ -90,6 +91,11 @@ const Navbar = () => {
               </svg>{" "}
               <span className="navtext">Shop</span>
             </Link>
+            { isAdmin ? 
+            <Link to="adminPanel"  className="adminpanel">
+                adminPanel
+            </Link> : null
+            }
           </nav>
         </div>
       </div>

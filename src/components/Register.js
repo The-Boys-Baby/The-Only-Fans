@@ -67,6 +67,8 @@ const Register = () => {
           <input
             type="text"
             value={username}
+            required
+            minLength={8}
             onChange={changeUsername}
             className="registerUser"
             placeholder="New Username..."
@@ -75,6 +77,8 @@ const Register = () => {
           <input
             type="password"
             value={password}
+            required
+            minLength={8}
             onChange={changePassword}
             className="registerPass"
             placeholder="New Password..."
@@ -83,6 +87,7 @@ const Register = () => {
           <input
             type="text"
             value={firstName}
+            required
             onChange={changeFirstName}
             className="registerUser"
             placeholder="First Name..."
@@ -91,6 +96,7 @@ const Register = () => {
           <input
             type="text"
             value={lastName}
+            required
             onChange={changeLastName}
             className="registerPass"
             placeholder="Last Name..."
@@ -99,6 +105,7 @@ const Register = () => {
           <input
             type="email"
             value={email}
+            required
             onChange={changeEmail}
             className="registerUser"
             placeholder="Email..."

@@ -153,6 +153,37 @@ input {
   color: rgb(255, 255, 255);
 }
 
+.checkoutButton {
+  margin: 10px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(40, 113, 144);
+  border-radius: 1em;
+  transition: 0.5s;
+  -webkit-filter: drop-shadow(10px 10px 10px rgb(0, 0, 0));
+  width: fit-content;
+}
+.checkoutButton:before {
+  content: "Checkout";
+}
+.checkoutButton:hover {
+  cursor: pointer;
+  padding-right: 24px;
+  padding-left: 8px;
+}
+
+.checkoutButton:hover:after {
+  opacity: 1;
+  right: 10px;
+}
+.checkoutButton:after {
+  content: "  »";
+  position: absolute;
+  opacity: 0;
+  right: -20px;
+  transition: 0.5s;
+  color: rgb(255, 255, 255);
+}
+
 input:required:focus {
   border: 2px solid rgb(0, 153, 255);
   outline: none;

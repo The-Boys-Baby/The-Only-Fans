@@ -61,44 +61,49 @@ const Register = () => {
   return (
     <div className="registerBox">
       <div className="register">
-        <form onSubmit={registerHandler}>
-          <div>Register</div>
-          <div>Username: </div>
+        <h1>Register</h1>
+        <form onSubmit={registerHandler}>          
+          <label>Username: 
           <input
             type="text"
             value={username}
             onChange={changeUsername}
             className="registerUser"
-          ></input>
-          <div>Password: </div>
+            placeholder="New Username..."
+          ></input></label>
+          <label>Password: 
           <input
             type="password"
             value={password}
             onChange={changePassword}
             className="registerPass"
-          ></input>
-          <div>First Name: </div>
+            placeholder="New Password..."
+          ></input></label>
+          <label>First Name: 
           <input
             type="text"
             value={firstName}
             onChange={changeFirstName}
             className="registerUser"
-          ></input>
-          <div>Last Name: </div>
+            placeholder="First Name..."
+          ></input></label>
+          <label>Last Name: 
           <input
             type="text"
             value={lastName}
             onChange={changeLastName}
             className="registerPass"
-          ></input>
-          <div>Email: </div>
+            placeholder="Last Name..."
+          ></input></label>
+          <label>Email: 
           <input
             type="email"
             value={email}
             onChange={changeEmail}
             className="registerUser"
-          ></input>
-          <button type="submit">Register</button>
+            placeholder="Email..."
+          ></input></label>
+          <button className="registerButton" type="submit"></button>
         </form>
       </div>
     </div>

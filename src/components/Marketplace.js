@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 import routes from "../routes";
 
 const Fans = () => {
   console.log("Fans should display");
-  const [fans, setFans] = useState([]);
   const { devHost, marketplace } = routes;
+  const { adminState: [isAdmin, setIsAdmin], userState: [user, setUser], fanState: [fans, setFans] } = useOutletContext();
   console.log(routes);
 
   useEffect(() => {

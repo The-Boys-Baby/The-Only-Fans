@@ -9,6 +9,7 @@ import Profile from "./components/Profile";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import IndivFans from "./components/Singlemarketplace";
+import Checkout from "./components/Checkout";
 
 const router = createBrowserRouter([
   {
@@ -42,7 +43,11 @@ const router = createBrowserRouter([
       },
       {
         path: "Fans/:productId",
-        element:< IndivFans />
+        element: <IndivFans />
+      },
+      {
+        path: "Checkout",
+        element: <Checkout />
       }
     ],
   },

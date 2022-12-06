@@ -47,24 +47,25 @@ const Login = () => {
   return (
     <div className="loginBoxBox">
       <div className="loginInput">
+        <h1>Login</h1>
         <form onSubmit={loginFunc}>
-          <div className="usernameInput">Username: </div>
+          <label className="usernameInput">Username:
           <input
             required
             type="text"
             value={username}
             onChange={changeUsername}
             className="registerUser"
-          ></input>
-          <div className="passwordInput">Password: </div>
+          ></input></label>
+          <label className="passwordInput">Password:
           <input
             type="password"
             value={password}
             onChange={changePassword}
             className="registerPass"
-          ></input>
+          ></input></label>
           <button className="submitButton" type="submit">
-            {" "}
+             {" "} {/*<--What the heck is this? -love mike 😘 */}
           </button>
         </form>
         <h3> Don't have an account?</h3>

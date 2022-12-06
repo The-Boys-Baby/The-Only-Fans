@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from "react";
 import routes from "../routes";
-import {useNavigate} from "react-router-dom"
+import {useNavigate, useOutletContext} from "react-router-dom"
+
+// if statement deifferentiating admins from users and making the admin panel available
+
+
+
 
 const Login = () => {
   const [password, setPassword] = useState();
   const [username, setUsername] = useState();
   const {devHost, login} = routes
+  const { adminState: [isAdmin, setIsAdmin], userState: [user, setUser] } = useOutletContext();
   const navigate = useNavigate()
   async function loginFunc(event) {
     event.preventDefault();
@@ -24,9 +30,10 @@ const Login = () => {
       });
 
       const data = await response.json();
-      localStorage.setItem("token", data.token);
+      
       if(data.token){
-
+        localStorage.setItem("token", data.token);
+        navigate("/Profile");
       }
     } catch (error) {
       console.log(error);

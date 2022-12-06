@@ -18,3 +18,10 @@ fetch(individualProduct, () => {})
 
 
 
+Dale 
+    admin post
+    use states
+    post a new item 
+        item name, desc, price
+    logout function for both user and admin
+    admin should have set passwords and usernames

@@ -30,7 +30,7 @@ const Login = () => {
       });
 
       const data = await response.json();
-      
+      console.log(data)
       if(data.token){
         localStorage.setItem("token", data.token);
         navigate("/Profile");
@@ -71,9 +71,7 @@ const Login = () => {
             onChange={changePassword}
             className="registerPass"
           ></input></label>
-          <button className="submitButton" type="submit">
-             {" "} {/*<--What the heck is this? -love mike 😘 */}
-          </button>
+          <button className="submitButton" type="submit"></button>
         </form>
         <h3> Don't have an account?</h3>
         <button className="registerButton" onClick={goTo}></button>

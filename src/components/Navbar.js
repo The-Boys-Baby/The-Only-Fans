@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from "react";
-import { Link } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 import OFlogo from "../Images/OF.png";
 
 
-const Navbar = ({contextObject}) => {
-  const {adminState: [isAdmin, setIsAdmin], userState: [user, setUser]} = contextObject;
+const Navbar = ({context}) => {
+  const {adminState: [isAdmin, setIsAdmin], userState: [user, setUser]} = context;
   return (
     <div>
       <div>

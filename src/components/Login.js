@@ -1,6 +1,23 @@
 import React, { useState, useEffect } from "react";
 import routes from "../routes";
 import {useNavigate} from "react-router-dom"
+const adminPrivledges = adminPanel
+// if statement deifferentiating admins from users and making the admin panel available
+const admin = () => {
+const [isAdmin, setAdmin] = useState();
+const [adminUsername, adminPassword] = useState();
+
+async function adminLogin(event) {
+  event.preventDefault
+  try {
+    const adminRecognition = await fetch(``)
+    if (user == admin)
+  } catch (error) {
+    
+  }
+}
+
+}
 
 const Login = () => {
   const [password, setPassword] = useState();

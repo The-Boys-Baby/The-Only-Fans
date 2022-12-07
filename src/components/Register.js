@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import routes from "../routes";
 import { useNavigate } from "react-router-dom";
+import { useOutletContext } from "react-router-dom";
 
 const Register = () => {
+  const {
+    adminState: [isAdmin, setIsAdmin],
+    userState: [user, setUser],
+  } = useOutletContext();
   const [password, setPassword] = useState();
   const [username, setUsername] = useState();
   const [firstName, setFirstName] = useState();

@@ -21,13 +21,32 @@ const App = () => {
           },
         });
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
         setFans(data);
       } catch (error) {
         console.log(error);
       }
     }
+    async function checkUser() {
+      try {
+        const response = await fetch(`${devHost}users/me`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            token: localStorage.getItem("token"),
+          }),
+        });
+        const data = await response.json();
+        setUser(data.user);
+        setIsAdmin(data.user.isadmin);
+      } catch (error) {
+        console.log(error);
+      }
+    }
     postHandler();
+    checkUser();
   }, []);
   return (
     <div>

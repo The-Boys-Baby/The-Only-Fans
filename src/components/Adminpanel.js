@@ -10,7 +10,7 @@ const AdminFans = () => {
   } = useOutletContext();
   //send them back to a profile page if they are not an admin (navigate)
   const navigate = useNavigate();
-  !isAdmin && navigate("/profile");
+  // !isAdmin && navigate("/profile");
 
   // list user info
 
@@ -25,6 +25,7 @@ const AdminFans = () => {
   const [price, setPrice] = useState("");
   const [name, setName] = useState("");
   const [id, setId] = useState(0);
+  const [click, setClick] = useState(false);
   console.log(adminFans);
   // fetch all fans including inactive fans
 
@@ -45,12 +46,21 @@ const AdminFans = () => {
     console.log(filteredFans);
   }, []);
 
-  const handleInputChange = (event) => {
+  const handleInputChange = async (event) => {
     setSearchInput(event.target.value);
   };
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     setSearch(searchInput.toString());
+  };
+  const changeclick = async (fan) => {
+    setId(fan);
+    console.log(id, fan, click);
+    if (id == fan) {
+      setClick(!click);
+    } else {
+      setClick(true);
+    }
   };
   return (
     <>
@@ -71,38 +81,52 @@ const AdminFans = () => {
             return (
               <div key={index} className="createFan">
                 Create Post
-                <form onSubmit={null}>
+                <form onSubmit={(event) => event.preventDefault()}>
                   <label>
-                  ID {fan.id} - Product Name: {fan.name}
+                    ID {fan.id} - Product Name: {fan.name}
                   </label>
-                  <input
-                    type="text"
-                    placeholder={fan.name}
-                    value={name}
-                    onChange={(event) => {
-                      setName(event.target.value);
-                    }}
-                  ></input>
+                  {id == fan.id && click == true ? (
+                    <input
+                      type="text"
+                      placeholder={fan.name}
+                      value={name}
+                      onChange={(event) => {
+                        setName(event.target.value);
+                      }}
+                    ></input>
+                  ) : null}
                   <label>Enter Price: {fan.price}</label>
-                  <input
-                    type="text"
-                    placeholder={fan.price}
-                    value={price}
-                    onChange={(event) => {
-                      setPrice(event.target.value);
-                    }}
-                  ></input>
+                  {id == fan.id && click == true ? (
+                    <input
+                      type="text"
+                      placeholder={fan.price}
+                      value={price}
+                      onChange={(event) => {
+                        setPrice(event.target.value);
+                      }}
+                    ></input>
+                  ) : null}
                   <label>Enter Description: {fan.description}</label>
-                  <input
-                    type="text"
-                    placeholder={fan.description}
-                    value={description}
-                    onChange={(event) => {
-                      setDescription(event.target.value);
+                  {id == fan.id && click === true ? (
+                    <input
+                      type="text"
+                      placeholder={fan.description}
+                      value={description}
+                      onChange={(event) => {
+                        setDescription(event.target.value);
+                      }}
+                    ></input>
+                  ) : null}
+                  <button onClick={() => changeclick(fan.id)}>Update</button>
+                  <button
+                    type="submit"
+                    onClick={() => {
+                      null;
                     }}
-                  ></input>
-                  
-                  <button type="submit"> Edit post </button>
+                  >
+                    {" "}
+                    Edit post{" "}
+                  </button>
                 </form>
               </div>
             );

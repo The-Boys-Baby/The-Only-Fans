@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 import routes from "../routes";
 
 const Fans = () => {
   console.log("Fans should display");
-  const [fans, setFans] = useState([]);
   const { devHost, marketplace } = routes;
+  const {
+    adminState: [isAdmin, setIsAdmin],
+    userState: [user, setUser],
+    fanState: [fans, setFans],
+  } = useOutletContext();
   console.log(routes);
 
   useEffect(() => {
@@ -32,16 +36,18 @@ const Fans = () => {
           !!fans.length &&
           fans.map((fan, idx) => {
             return (
-              <div className="productBox">
-                  <div className="key" key={idx}>
-                    <div className="image"><img class="fanPics" src={fan.pictures} alt={fan.name} /></div>
-                    <div className="descriptions">
-                        <h2>{fan.name}</h2>
-                        <p>{fan.price}</p>
-                        <p>{fan.description}</p>
-                        <Link to={`/fans/${fan.id}`}>Go to products</Link>
-                    </div>
+              <div className="key" key={idx}>
+                <div className="productBox">
+                  <div className="image">
+                    <img class="fanPics" src={fan.pictures} alt={fan.name} />
                   </div>
+                  <div className="descriptions">
+                    <h2>{fan.name}</h2>
+                    <p>{fan.price}</p>
+                    <p>{fan.description}</p>
+                    <Link to={`/fans/${fan.id}`}>Go to products</Link>
+                  </div>
+                </div>
               </div>
             );
           })}

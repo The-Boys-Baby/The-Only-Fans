@@ -10,6 +10,8 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 import IndivFans from "./components/Singlemarketplace";
 import Checkout from "./components/Checkout";
+import Users from "./components/Users";
+import AdminFans from './components/adminPanel'
 
 const router = createBrowserRouter([
   {
@@ -43,12 +45,20 @@ const router = createBrowserRouter([
       },
       {
         path: "Fans/:productId",
-        element: <IndivFans />
+        element: <IndivFans />,
       },
       {
         path: "Checkout",
-        element: <Checkout />
-      }
+        element: <Checkout />,
+      },
+      {
+        path: "Users",
+        element: <Users />,
+      },
+      {
+        path: "adminpanel",
+        element: <AdminFans />,
+      },
     ],
   },
 ]);

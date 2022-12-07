@@ -312,3 +312,6 @@ button {
   padding: auto;
   flex-direction: column;
 }
+button{
+  cursor: pointer;
+}

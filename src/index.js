@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+// jeremy: import { createRoot } from 'react-dom/client' // conversion to react 18
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
 import Homepage from "./components/Homepage";
@@ -11,7 +12,7 @@ import Login from "./components/Login";
 import IndivFans from "./components/Singlemarketplace";
 import Checkout from "./components/Checkout";
 import Users from "./components/Users";
-import AdminFans from './components/adminPanel'
+import AdminFans from "./components/adminPanel";
 
 const router = createBrowserRouter([
   {
@@ -24,7 +25,7 @@ const router = createBrowserRouter([
         element: <Homepage />,
       },
       {
-        path: "Errorpage",
+        path: "Errorpage", // api/users/this/that
         element: <Errorpage />,
       },
       {
@@ -67,3 +68,5 @@ ReactDOM.render(
   <RouterProvider router={router} />,
   document.getElementById("App")
 );
+// jeremy: root = createRoot(document.getElementById("App")) // conversion to react 18
+// jeremy: root.render(<RouterProvider router={router} />)

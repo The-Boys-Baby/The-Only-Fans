@@ -6,7 +6,7 @@ const App = () => {
   const { devHost, marketplace } = routes;
   const [isAdmin, setIsAdmin] = useState(false);
   const [user, setUser] = useState({});
-  const [fans, setFans] = useState();
+  const [fans, setFans] = useState(); // jeremy: always want to have an initial value.
   const contextObject = {
     adminState: [isAdmin, setIsAdmin],
     userState: [user, setUser],
@@ -38,7 +38,7 @@ const App = () => {
             token: localStorage.getItem("token"),
           }),
         });
-        const data = await response.json();
+        const data = await response.json(); // jeremy: if statement needed before setting values
         setUser(data.user);
         setIsAdmin(data.user.isadmin);
       } catch (error) {

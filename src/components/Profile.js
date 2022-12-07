@@ -16,7 +16,7 @@ const Profile = () => {
   useEffect(() => {
     if (!localStorage.getItem("token")) {
       navigate("/Login");
-    }
+    } // jeremy: can make this an else
     if (localStorage.getItem("token")) {
       async function fetchProfileData() {
         try {
@@ -28,6 +28,7 @@ const Profile = () => {
           });
           const data = await response.json();
           console.log("This is the profile data: ", data);
+          // jeremy: check with if else
           setPersonalProfile(data);
         } catch (error) {
           console.log(error);

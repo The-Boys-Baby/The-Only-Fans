@@ -124,8 +124,7 @@ const AdminFans = () => {
                       null;
                     }}
                   >
-                    {" "}
-                    Edit post{" "}
+                    Edit post
                   </button>
                 </form>
               </div>

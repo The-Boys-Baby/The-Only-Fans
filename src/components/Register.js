@@ -16,6 +16,7 @@ const Register = () => {
   const navigate = useNavigate();
 
   const { devHost, register } = routes;
+
   async function registerHandler(event) {
     event.preventDefault();
     if ((password, username, firstName, lastName, email)) {
@@ -50,6 +51,10 @@ const Register = () => {
       console.log("please input all fields");
     }
   }
+
+  // jeremy: can make these change handlers one function
+  // const handleOnChange =(event, setter) => {setter(event.target.value)}
+  // eg <Tag onChange={(event) => {handleOnChange(event, setUsername)}}
   const changeUsername = (event) => {
     setUsername(event.target.value);
   };
@@ -70,6 +75,7 @@ const Register = () => {
       <div className="register">
         <h1>Register</h1>
         <form onSubmit={registerHandler}>
+          {/* jeremy: <form onSubmit={(event) => handleOnChange(event, registerHandler)}> */}
           <label>
             Username:
             <input

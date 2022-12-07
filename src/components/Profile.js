@@ -1,50 +1,42 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate, useOutletContext } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import routes from "../routes";
 
 const Profile = () => {
-  const {
-    userState: [user, setUser],
-    adminState: [isAdmin, setIsAdmin],
-  } = useOutletContext();
+  const [personalProfile, setPersonalProfile] = useState([]);
   const [items, setItems] = useState([]);
   const navigate = useNavigate();
   const { devHost, profile } = routes;
 
   function logOut(event) {
     localStorage.removeItem("token");
-    setUser({});
-    setIsAdmin(false);
     navigate("/");
   }
 
   useEffect(() => {
-    if (!user.id) {
+    if (!localStorage.getItem("token")) {
       navigate("/Login");
-    } else {
-      // async function fetchProfileData() {
-      //   try {
-      //     const response = await fetch(`${devHost}${profile}`, {
-      //       headers: {
-      //         "Content-Type": "application/json",
-      //         Authorization: `Bearer ${localStorage.getItem("token")}`,
-      //       },
-      //     });
-      //     const data = await response.json();
-      //     console.log("This is the profile data: ", data);
-      //     setUser(data);
-      //   } catch (error) {
-      //     console.log(error);
-      //     navigate("/Profile");
-      //   }
-      // fetchProfileData();
+    }
+    if (localStorage.getItem("token")) {
+      async function fetchProfileData() {
+        try {
+          const response = await fetch(`${devHost}${profile}`, {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          });
+          const data = await response.json();
+          console.log("This is the profile data: ", data);
+          setPersonalProfile(data);
+        } catch (error) {
+          console.log(error);
+          navigate("/Profile");
+        }
+      }
+      fetchProfileData();
     }
   }, []);
-  useEffect(() => {
-    if (user.isAdmin) {
-      setIsAdmin(true);
-    }
-  }, [user]);
   return (
     <div>
       <div>

@@ -23,7 +23,7 @@ const Profile = () => {
           const response = await fetch(`${devHost}${profile}`, {
             headers: {
               "Content-Type": "application/json",
-              Authorization: `Bearer ${localStorage.getItem("token")}`,
+              "Authorization": `Bearer ${localStorage.getItem("token")}`,
             },
           });
           const data = await response.json();

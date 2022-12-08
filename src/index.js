@@ -11,7 +11,7 @@ import Login from "./components/Login";
 import IndivFans from "./components/Singlemarketplace";
 import Checkout from "./components/Checkout";
 import Users from "./components/Users";
-import AdminFans from './components/adminPanel'
+import AdminFans from './components/Adminpanel'
 
 const router = createBrowserRouter([
   {

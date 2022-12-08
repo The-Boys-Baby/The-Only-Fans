@@ -264,7 +264,7 @@ button {
   display: flex;
   align-items: center;
   width: 90vw;
-  height: 80vh;
+  height: 78vh;
   overflow: scroll;
   padding: auto;
   flex-direction: column;
@@ -312,6 +312,52 @@ button {
   padding: auto;
   flex-direction: column;
 }
-button{
+button {
   cursor: pointer;
+}
+
+.singleProdApp {
+  display: flex;
+  align-items: center;
+  width: 90vw;
+  height: 69vh;
+  /* overflow: scroll; */
+  padding: auto;
+  flex-direction: column;
+}
+.singleProdBox {
+  border: 2px solid black;
+  border-radius: 1em;
+  width: 80vw;
+  height: 50vh;
+  padding: 1vh 1vw;
+  margin: 2vh 2vw;
+  display: flex;
+  justify-content: center;
+}
+.singleProdPhoto {
+  width: 300px;
+  height: 300px;
+  border-radius: 150rem;
+  margin-bottom: 10px;
+}
+/* .singleProd{
+  display: flex;
+  align-items: center;
+  width: 90vw;
+  height: 78vh;
+  overflow: scroll;
+  padding: auto;
+  flex-direction: column;
+} */
+
+.prodBarBox{
+  border: 2px solid black;
+  width: 90vw;
+  height: 15vh;
+  margin-top: 5px;
+  border-radius: 1em;
+  overflow-y: scroll;
+  overflow: scroll;
+  flex-direction: row;
 }

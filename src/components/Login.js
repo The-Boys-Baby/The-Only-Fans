@@ -31,9 +31,10 @@ const Login = () => {
       console.log(data);
       if (data.token) {
         localStorage.setItem("token", data.token);
+        console.log("done")
         setUser(data.user);
         setIsAdmin(data.user.isadmin);
-        navigate("/Profile");
+        navigate("/");
       }
     } catch (error) {
       console.log(error);

@@ -6,11 +6,13 @@ const App = () => {
   const { devHost, marketplace } = routes;
   const [isAdmin, setIsAdmin] = useState(false);
   const [user, setUser] = useState({});
-  const [fans, setFans] = useState();
+  const [fans, setFans] = useState([]);
+  const [cart, setCart] = useState({});
   const contextObject = {
     adminState: [isAdmin, setIsAdmin],
     userState: [user, setUser],
     fanState: [fans, setFans],
+    cartState: [cart, setCart]
   };
   useEffect(() => {
     async function postHandler() {
@@ -27,6 +29,21 @@ const App = () => {
         console.log(error);
       }
     }
+    async function cart() {
+      try {
+        const response = await fetch(`${devHost}checkout/me`, {
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${localStorage.getItem("token")}`,
+          },
+        });
+        const data = await response.json()
+        console.log(data)
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    
     async function checkUser() {
       try {
         const response = await fetch(`${devHost}users/me`, {
@@ -45,6 +62,7 @@ const App = () => {
         console.log(error);
       }
     }
+    cart()
     postHandler();
     checkUser();
   }, []);

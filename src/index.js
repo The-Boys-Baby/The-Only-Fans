@@ -12,6 +12,7 @@ import IndivFans from "./components/Singlemarketplace";
 import Checkout from "./components/Checkout";
 import Users from "./components/Users";
 import AdminFans from './components/adminPanel'
+import Reload from "./components/Reload";
 
 const router = createBrowserRouter([
   {
@@ -58,6 +59,10 @@ const router = createBrowserRouter([
       {
         path: "adminpanel",
         element: <AdminFans />,
+      },
+      {
+        path: "Reload",
+        element: <Reload />,
       },
     ],
   },

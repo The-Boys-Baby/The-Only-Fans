@@ -12,6 +12,7 @@ const Checkout = () => {
   const [cvvCode, setCvvCode] = useState("");
   const [newCart, setNewCart] = useState([]);
   const [indexR, setIndexR] = useState(0);
+  const [quantity, setQuantity] = useState(1);
   const navigate = useNavigate();
   const { devHost, checkout } = routes;
   const {
@@ -39,32 +40,33 @@ const Checkout = () => {
     cart();
   }, []);
 
-  useEffect(() => {
-    async function deleteCart() {
-      try {
-        const response = await fetch(`${devHost}checkout/me`, {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        });
-        const data = await response.json();
-        setNewCart(data.order.items);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    deleteCart();
-  }, [indexR]);
+  // useEffect(() => {
+  //   async function deleteCart() {
+  //     try {
+  //       const response = await fetch(`${devHost}checkout/me`, {
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //           Authorization: `Bearer ${localStorage.getItem("token")}`,
+  //         },
+  //       });
+  //       const data = await response.json();
+  //       setNewCart(data.order.items);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   }
+  //   deleteCart();
+  // }, [indexR]);
 
   async function checkoutHandler(event) {
-    event.preventDefault()
+    event.preventDefault();
     if ((name, address, zipcode, aptNumber, creditCard, expiration, cvvCode)) {
       try {
         const response = await fetch(`${devHost}${checkout}`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
           body: JSON.stringify({
             name: name,
@@ -76,7 +78,16 @@ const Checkout = () => {
             cvvCode: cvvCode,
           }),
         });
-        const data = await response.json();
+        const {message, order: newOrder} = await response.json();
+        console.log(newOrder)
+        if (message == "success"){
+          console.log(message)
+          setCart(newOrder)
+          navigate("/Fans");
+        }
+        if (message == "noItems"){
+          console.log(message)
+        }
       } catch (error) {
         console.log(error);
       }
@@ -84,6 +95,12 @@ const Checkout = () => {
       console.log("All fields are required to complete the checkout form");
     }
   }
+
+  async function changeQuantity(event) {
+    setQuantity(event.target.value);
+    // console.log(quantity);
+  }
+
   const removeItemHandler = async (id) => {
     try {
       const response = await fetch(`${devHost}checkout/${id}`, {
@@ -94,6 +111,27 @@ const Checkout = () => {
         },
       });
       const data = await response.json();
+      navigate("/Reload");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const changeQuantityHandler = async (id) => {
+    // console.log("this is the id:", id);
+    console.log("I'm in the quantity handler")
+    try {
+      const response = await fetch(`${devHost}checkout/${id}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+        body: JSON.stringify({
+          quantity: quantity,
+        }),
+      });
+      const data = await response.json();
+      navigate("/Reload");
     } catch (error) {
       console.log(error);
     }
@@ -122,26 +160,36 @@ const Checkout = () => {
 
   const submitHandler = (event, id) => {
     event.preventDefault();
+    console.log("I'm in the submitHandler")
     removeItemHandler(id);
-    setIndexR(indexR + 1);
+    // setIndexR(indexR + 1);
   };
+
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        width: "90vw",
+        border: "1px solid black",
+        margin: "5px",
+        padding: "5px",
+      }}
+    >
       <div>
         <p></p>
         {newCart &&
           !!newCart.length &&
           newCart.map((cart, index) => {
             return (
-              <form
-                key={index}
-                onSubmit={(event) => submitHandler(event, cart.id)}
-              >
-                <div
+              <div key={index}>
+                <form
                   style={{
+                    display: "flex",
                     border: "1px solid black",
                     margin: "5px",
                     padding: "5px",
+                    width: "70vw",
+                    justifyContent: "space-between",
                   }}
                   key={index}
                 >
@@ -149,9 +197,39 @@ const Checkout = () => {
                   <p>Product Id: {cart.productid}</p>
                   <p>Price: ${cart.orderprice}</p>
                   <p>Quantity: {cart.quantity}</p>
-                  <button onClick = {(event) => submitHandler(event, cart.id)}>remove From Cart</button>
-                </div>
-              </form>
+                  <select
+                    name="fan"
+                    id="quantity"
+                    value={quantity}
+                    onChange={changeQuantity}
+                  >
+                    <option value={1}>1</option>
+                    <option value={2}>2</option>
+                    <option value={3}>3</option>
+                    <option value={4}>4</option>
+                    <option value={5}>5</option>
+                    <option value={10}>10</option>
+                    <option value={15}>15</option>
+                    <option value={20}>20</option>
+                    <option value={25}>25</option>
+                    <option value={100}>100</option>
+                  </select>
+                  <button
+                    type="button"
+                    onClick={(event) => changeQuantityHandler(cart.id)}
+                  >
+                    Update Quantity
+                  </button>
+                  <br />
+                  <br />
+                  <button
+                    type="button"
+                    onClick={(event) => submitHandler(event, cart.id)}
+                  >
+                    Remove Item
+                  </button>
+                </form>
+              </div>
             );
           })}
       </div>

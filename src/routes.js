@@ -3,7 +3,7 @@ export default {
   users: "admin/getUsers",
   profile:`users/me`,
   cart: "users/:userId/cart",
-  checkout: (userId) => `users/${userId}/checkout`, //${checkout(id)}
+  checkout: `checkout/submit`, //${checkout(id)}
   register: "users/register",
   login: "users/login",
   marketplace: "products",

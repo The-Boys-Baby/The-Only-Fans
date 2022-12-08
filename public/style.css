@@ -80,7 +80,6 @@ form {
   font-family: "Yanone Kaffeesatz", sans-serif;
   font-size: large;
   width: fit-content;
-  background-color: ;
 }
 input {
   display: flex;
@@ -269,9 +268,13 @@ button {
   padding: auto;
   flex-direction: column;
 }
-::-webkit-scrollbar {
+
+.productsBox::-webkit-scrollbar {
   display: none;
 }
+/* ::-webkit-scrollbar {
+  display: none;
+} */
 
 .productBox {
   border: 2px solid black;
@@ -328,36 +331,72 @@ button {
 .singleProdBox {
   border: 2px solid black;
   border-radius: 1em;
-  width: 80vw;
-  height: 50vh;
-  padding: 1vh 1vw;
+  width: fit-content;
+  height: fit-content;
+  overflow: hidden;
   margin: 2vh 2vw;
   display: flex;
   justify-content: center;
+  align-content: center;
+  align-items: center;
 }
 .singleProdPhoto {
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
   border-radius: 150rem;
-  margin-bottom: 10px;
 }
-/* .singleProd{
+.singleProd {
   display: flex;
   align-items: center;
-  width: 90vw;
-  height: 78vh;
-  overflow: scroll;
-  padding: auto;
+  /* width: 90vw;
+  height: 40vh; */
+  overflow: hidden;
+  padding: 40px;
   flex-direction: column;
-} */
+}
 
-.prodBarBox{
-  border: 2px solid black;
-  width: 90vw;
+.prodBar {
+  border: 2px solid rgb(196, 27, 27);
   height: 15vh;
-  margin-top: 5px;
+  width: fit-content;
+  margin-top: 25px;
   border-radius: 1em;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   overflow: scroll;
   flex-direction: row;
+  margin: 25px;
+  align-content: center;
+}
+
+.prodBarBox {
+  border: 2px solid rgb(0, 0, 0);
+  width: 90%;
+  height: fit-content;
+  border-radius: 1em;
+  display: flex;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  /* justify-content: center; */
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  margin: 5px;
+}
+
+.prodBarBox::-webkit-scrollbar {
+  border-radius: 2em;
+  background-color: rgb(99, 99, 99);
+  /* height: 10px; */
+}
+
+.prodBarBox::-webkit-scrollbar-thumb {
+  border-radius: 1em;
+  background-color: rgb(40, 113, 144);
+}
+
+.prodBox {
+  border-right: 1px solid rgb(0, 0, 0);
+  margin-left: 4px;
 }

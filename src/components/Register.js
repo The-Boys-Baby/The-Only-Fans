@@ -34,6 +34,13 @@ const Register = () => {
           }),
         });
         const data = await response.json();
+<<<<<<< Updated upstream
+=======
+        console.log(data);
+        if (data.status == "Successful") {
+          localStorage.setItem("token", data.token);
+        }
+>>>>>>> Stashed changes
         console.log(data);
         if (data.token) {
           localStorage.setItem("token", data.token);

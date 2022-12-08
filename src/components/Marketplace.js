@@ -45,7 +45,7 @@ const Fans = () => {
                     <h2>{fan.name}</h2>
                     <p>${fan.price}</p>
                     <p>{fan.description}</p>
-                    <Link to={`/fans/${fan.id}`}>Go to products</Link>
+                    <Link to={`/Fans/${fan.id}`}>Go to product</Link>
                   </div>
                 </div>
               </div>

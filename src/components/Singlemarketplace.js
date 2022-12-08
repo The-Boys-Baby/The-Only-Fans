@@ -6,6 +6,7 @@ const IndivFans = () => {
   console.log("Fans should display");
   const { devHost, marketplace } = routes;
   const { productId } = useParams();
+  const [id, setId] = useState(productId);
   const [quantity, setQuantity] = useState(1);
   const {
     adminState: [isAdmin, setIsAdmin],
@@ -34,7 +35,7 @@ const IndivFans = () => {
       }
     }
     postHandler();
-  }, []);
+  }, [id]);
   async function changeQuantity(event) {
     setQuantity(event.target.value);
     console.log(quantity);
@@ -102,22 +103,27 @@ const IndivFans = () => {
           {console.log(fans)}
         </div>
       </div>
-      {fans &&
-        fans.map((notFan, idx) => {
-          if (notFan.id != indivFan.id) {
-            return (
-              <div key={idx} className="prodBar">
+      <div className="prodBarBox">
+        {fans &&
+          fans.map((notFan, idx) => {
+            if (notFan.id != indivFan.id) {
+              return (
+                <div key={idx} className="prodBox">
                   <img
                     className="fanPics"
                     src={notFan.pictures}
                     alt={notFan.name}
                   />
                   <p>{notFan.name} </p>
-                  <p>{notFan.price} </p>
-              </div>
-            );
-          }
-        })}
+                  <p>${notFan.price} </p>
+                  <Link onClick={() => {
+                    setId(notFan.id);
+                  }} to={`/Fans/${notFan.id}`}>Go to product</Link>
+                </div>
+              );
+            }
+          })}
+      </div>
     </div>
   );
 };

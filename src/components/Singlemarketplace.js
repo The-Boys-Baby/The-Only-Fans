@@ -4,7 +4,6 @@ import routes from "../routes";
 
 const IndivFans = () => {
   console.log("Fans should display");
-  const [newfans, setNewFans] = useState([]);
   const { devHost, marketplace } = routes;
   const { productId } = useParams();
   const [quantity, setQuantity] = useState(1);
@@ -12,8 +11,13 @@ const IndivFans = () => {
     adminState: [isAdmin, setIsAdmin],
     userState: [user, setUser],
     fanState: [fans, setFans],
-    cartState: [cart, setCart],
   } = useOutletContext();
+  const [indivFan, setIndivFan] = useState(
+    fans.find((fan, index) => {
+      return productId == fan.id;
+    }) || {}
+  );
+
   useEffect(() => {
     async function postHandler() {
       try {
@@ -24,8 +28,7 @@ const IndivFans = () => {
           },
         });
         const data = await response.json();
-        console.log(data);
-        setNewFans(data);
+        setIndivFan(data);
       } catch (error) {
         console.log(error);
       }
@@ -44,7 +47,7 @@ const IndivFans = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${localStorage.getItem("token")}`,
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
         body: JSON.stringify({
           quantity: quantity,
@@ -52,46 +55,69 @@ const IndivFans = () => {
       });
       const data = await response.json();
       console.log(data);
-      setCart(data.updatedOrder);
-      // setCart = number is what jeremy is talking about instead of setCart()
     } catch (error) {
       console.log(error);
     }
   }
   return (
-    <div>
-      {newfans ? (
-        <div>
-          <div key={newfans.id}>
-            <h2>{newfans.name}</h2>
-            <p>{newfans.price}</p>
-            <p>{newfans.description}</p>
+    <div className="singleProdApp">
+      <div className="singleProdBox">
+        <div className="singleProd">
+          {indivFan?.id ? (
             <div>
-              <img src={newfans.pictures} alt={fans.name} />
+              <div key={indivFan.id}>
+                <h2>{indivFan.name}</h2>
+                <p>${indivFan.price}</p>
+                <p>{indivFan.description}</p>
+                <div>
+                  <img
+                    className="singleProdPhoto"
+                    src={indivFan.pictures}
+                    alt={indivFan.name}
+                  />
+                </div>
+                <button onClick={submitButton}>Add To Cart</button>
+                <select
+                  name="fan"
+                  id="quantity"
+                  value={quantity}
+                  onChange={changeQuantity}
+                >
+                  <option value={1}>1</option>
+                  <option value={2}>2</option>
+                  <option value={3}>3</option>
+                  <option value={4}>4</option>
+                  <option value={5}>5</option>
+                  <option value={10}>10</option>
+                  <option value={15}>15</option>
+                  <option value={20}>20</option>
+                  <option value={25}>25</option>
+                  <option value={100}>100</option>
+                </select>
+              </div>
             </div>
-            <button onClick={submitButton}>Add To Cart</button>
-            <select
-              name="fan"
-              id="quantity"
-              value={quantity}
-              onChange={changeQuantity}
-            >
-              <option value={1}>1</option>
-              <option value={2}>2</option>
-              <option value={3}>3</option>
-              <option value={4}>4</option>
-              <option value={5}>5</option>
-              <option value={10}>10</option>
-              <option value={15}>15</option>
-              <option value={20}>20</option>
-              <option value={25}>25</option>
-              <option value={100}>100</option>
-            </select>
-          </div>
+          ) : (
+            "Aint Nothin"
+          )}
+          {console.log(fans)}
         </div>
-      ) : (
-        "Aint Nothin"
-      )}
+      </div>
+      {fans &&
+        fans.map((notFan, idx) => {
+          if (notFan.id != indivFan.id) {
+            return (
+              <div key={idx} className="prodBar">
+                  <img
+                    className="fanPics"
+                    src={notFan.pictures}
+                    alt={notFan.name}
+                  />
+                  <p>{notFan.name} </p>
+                  <p>{notFan.price} </p>
+              </div>
+            );
+          }
+        })}
     </div>
   );
 };

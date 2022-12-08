@@ -26,7 +26,6 @@ const AdminFans = () => {
   const [name, setName] = useState("");
   const [id, setId] = useState(0);
   const [click, setClick] = useState(false);
-  console.log(adminFans);
   // fetch all fans including inactive fans
 
   useEffect(() => {

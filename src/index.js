@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-// jeremy: import { createRoot } from 'react-dom/client' // conversion to react 18
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './App'
 import Homepage from './components/Homepage'
@@ -12,8 +11,7 @@ import Login from './components/Login'
 import IndivFans from './components/Singlemarketplace'
 import Checkout from './components/Checkout'
 import Users from './components/Users'
-import AdminFans from './components/adminPanel'
-import Reload from './components/Reload'
+import AdminFans from './components/Adminpanel'
 
 const router = createBrowserRouter([
 	{

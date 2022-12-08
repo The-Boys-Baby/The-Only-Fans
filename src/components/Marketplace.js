@@ -39,11 +39,11 @@ const Fans = () => {
               <div className="key" key={idx}>
                 <div className="productBox">
                   <div className="image">
-                    <img class="fanPics" src={fan.pictures} alt={fan.name} />
+                    <img className="fanPics" src={fan.pictures} alt={fan.name} />
                   </div>
                   <div className="descriptions">
                     <h2>{fan.name}</h2>
-                    <p>{fan.price}</p>
+                    <p>${fan.price}</p>
                     <p>{fan.description}</p>
                     <Link to={`/fans/${fan.id}`}>Go to products</Link>
                   </div>

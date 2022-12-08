@@ -43,7 +43,6 @@ const App = () => {
         console.log(error);
       }
     }
-    
     async function checkUser() {
       try {
         const response = await fetch(`${devHost}users/me`, {
@@ -56,16 +55,22 @@ const App = () => {
           }),
         });
         const data = await response.json();
-        setUser(data.user);
-        setIsAdmin(data.user.isadmin);
+        console.log(data)
+        if (data.user) {
+          setUser(data.user);
+          setIsAdmin(data.user.isadmin);
+        } else {
+          console.log("no user")
+        }
       } catch (error) {
         console.log(error);
       }
     }
     cart()
     postHandler();
-    checkUser();
+    checkUser()
   }, []);
+
   return (
     <div>
       <Navbar context={contextObject} />

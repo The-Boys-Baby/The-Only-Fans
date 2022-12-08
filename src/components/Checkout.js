@@ -131,6 +131,8 @@ const Checkout = () => {
         }),
       });
       const data = await response.json();
+      console.log(data)
+      
       navigate("/Reload");
     } catch (error) {
       console.log(error);

@@ -8,5 +8,4 @@ export default {
   marketplace: "products",
   fanDetails: "products/:productId",
   editFan: "products/:productId",
-
 };

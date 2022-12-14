@@ -307,11 +307,21 @@ button {
   display: flex;
   align-items: left;
   width: 90vw;
-  height: 80vh;
+  height: 73vh;
   overflow: scroll;
   padding: auto;
   flex-direction: column;
 }
 button{
   cursor: pointer;
+}
+.productsBox2 {
+  display: flex;
+  align-items: left;
+  width: 60vw;
+  height: 80vh;
+  overflow: scroll;
+  padding: auto;
+  flex-direction: column;
+  border: 1px black solid
 }

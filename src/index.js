@@ -13,6 +13,9 @@ import Checkout from "./components/Checkout";
 import Users from "./components/Users";
 import AdminFans from './components/adminPanel'
 import Reload from "./components/Reload";
+import AdminDash from "./components/adminDashboard";
+import Responsibility from "./components/responsibility"
+import CreateProduct from "./components/createProduct";
 
 const router = createBrowserRouter([
   {
@@ -64,6 +67,18 @@ const router = createBrowserRouter([
         path: "Reload",
         element: <Reload />,
       },
+      {
+        path: "admindash",
+        element: <AdminDash />
+      },
+      {
+        path: "responsibility",
+        element: <Responsibility />
+      },
+      {
+        path: "createproduct",
+        element: <CreateProduct />
+      }
     ],
   },
 ]);

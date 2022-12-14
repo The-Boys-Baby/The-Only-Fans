@@ -119,7 +119,7 @@ const Navbar = ({ context }) => {
               <span className="navtext">Shop</span>
             </Link>
             {isAdmin && (
-              <Link id="homenav" className="navItem" to="/adminpanel">
+              <Link id="homenav" className="navItem" to="/admindash">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"

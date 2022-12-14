@@ -177,6 +177,7 @@ const Checkout = () => {
     >
       <div>
         <p></p>
+        <div className="productsBox2">
         {newCart &&
           !!newCart.length &&
           newCart.map((cart, index) => {
@@ -185,11 +186,9 @@ const Checkout = () => {
                 <form
                   style={{
                     display: "flex",
-                    border: "1px solid black",
-                    margin: "5px",
-                    padding: "5px",
-                    width: "70vw",
+                    padding: "1%",
                     justifyContent: "space-between",
+                    width: "98%"
                   }}
                   key={index}
                 >
@@ -232,6 +231,7 @@ const Checkout = () => {
               </div>
             );
           })}
+          </div>
       </div>
       <div className="registerBox">
         <div className="register">

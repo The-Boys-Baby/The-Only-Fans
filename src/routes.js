@@ -7,6 +7,7 @@ export default {
   register: "users/register",
   login: "users/login",
   marketplace: "products",
+  createProduct: "admin/createproduct",
   fanDetails: "products/:productId",
   editFan: "products/:productId",
 };

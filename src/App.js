@@ -5,7 +5,7 @@ import routes from "./routes";
 const App = () => {
   const { devHost, marketplace } = routes;
   const [isAdmin, setIsAdmin] = useState(false);
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(null);
   const [fans, setFans] = useState([]);
   const [cart, setCart] = useState({});
   const contextObject = {
@@ -56,8 +56,10 @@ const App = () => {
           }),
         });
         const data = await response.json();
+        if(data){
         setUser(data.user);
         setIsAdmin(data.user.isadmin);
+        }
       } catch (error) {
         console.log(error);
       }

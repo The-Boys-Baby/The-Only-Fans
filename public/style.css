@@ -44,6 +44,7 @@ nav {
   text-decoration: none;
   justify-content: space-evenly;
   -webkit-filter: drop-shadow(5px 5px 5px rgba(92, 92, 92, 0));
+          filter: drop-shadow(5px 5px 5px rgba(92, 92, 92, 0));
 }
 .navtext {
   display: none;
@@ -56,7 +57,8 @@ nav {
   color: rgb(255, 255, 255);
   background-color: rgb(40, 113, 144);
   border-radius: 1em;
-  -webkit-filter: drop-shadow(5px 5px 5px rgb(92, 92, 92));
+  -webkit-filter: drop-shadow(5px 5px 5px rgba(92, 92, 92, 0));
+          filter: drop-shadow(5px 5px 5px rgba(92, 92, 92, 0));
   height: fit-content;
   width: fit-content;
   content: "store";
@@ -80,7 +82,6 @@ form {
   font-family: "Yanone Kaffeesatz", sans-serif;
   font-size: large;
   width: fit-content;
-  background-color: ;
 }
 input {
   display: flex;
@@ -98,7 +99,8 @@ input {
   background-color: rgb(40, 113, 144);
   border-radius: 1em;
   transition: 0.5s;
-  -webkit-filter: drop-shadow(10px 10px 10px rgb(0, 0, 0));
+  -webkit-filter: drop-shadow(5px 5px 5px rgba(92, 92, 92, 0));
+          filter: drop-shadow(5px 5px 5px rgba(92, 92, 92, 0));
   width: fit-content;
 }
 .registerButton:before {
@@ -128,7 +130,8 @@ input {
   background-color: rgb(40, 113, 144);
   border-radius: 1em;
   transition: 0.5s;
-  -webkit-filter: drop-shadow(10px 10px 10px rgb(0, 0, 0));
+  -webkit-filter: drop-shadow(5px 5px 5px rgba(92, 92, 92, 0));
+          filter: drop-shadow(5px 5px 5px rgba(92, 92, 92, 0));
   width: fit-content;
 }
 
@@ -156,7 +159,8 @@ input {
   background-color: rgb(40, 113, 144);
   border-radius: 1em;
   transition: 0.5s;
-  -webkit-filter: drop-shadow(10px 10px 10px rgb(0, 0, 0));
+  -webkit-filter: drop-shadow(5px 5px 5px rgba(92, 92, 92, 0));
+          filter: drop-shadow(5px 5px 5px rgba(92, 92, 92, 0));
   width: fit-content;
 }
 .submitButton:before {
@@ -187,7 +191,8 @@ input {
   background-color: rgb(40, 113, 144);
   border-radius: 1em;
   transition: 0.5s;
-  -webkit-filter: drop-shadow(10px 10px 10px rgb(0, 0, 0));
+  -webkit-filter: drop-shadow(5px 5px 5px rgba(92, 92, 92, 0));
+          filter: drop-shadow(5px 5px 5px rgba(92, 92, 92, 0));
   width: fit-content;
 }
 .checkoutButton:before {

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { Link, useOutletContext, useNavigate } from "react-router-dom";
-
+import { Link, useOutletContext, useNavigate, json } from "react-router-dom";
+import routes from "../routes";
 const AdminFans = () => {
   // bring in context for user and isadmin
   const {
@@ -8,6 +8,7 @@ const AdminFans = () => {
     userState: [user, setUser],
     fanState: [fans, setFans],
   } = useOutletContext();
+  const {devHost} = routes
   //send them back to a profile page if they are not an admin (navigate)
   const navigate = useNavigate();
   // !isAdmin && navigate("/profile");
@@ -44,6 +45,27 @@ const AdminFans = () => {
     setFilteredFans(fans);
     console.log(filteredFans);
   }, []);
+
+  async function updateAndChange(){
+    try {
+        const response =  await fetch( `${devHost}products/update`,{
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")}`
+          }, body: JSON.stringify({
+            id : id,
+            name : name,
+            description : description,
+            price : price
+          })
+        })
+        const data = await response.json()
+        console.log(data)
+    } catch (error) {
+        console.log(error)
+    }
+  }
 
   const handleInputChange = async (event) => {
     setSearchInput(event.target.value);
@@ -116,16 +138,19 @@ const AdminFans = () => {
                       }}
                     ></input>
                   ) : null}
-                  <button onClick={() => changeclick(fan.id)}>Update</button>
-                  <button
+                  {id == fan.id && click === true ? (<button
                     type="submit"
-                    onClick={() => {
-                      null;
+                    onClick={(event) => {
+                      event.preventDefault()
+                      updateAndChange()
                     }}
                   >
                     {" "}
-                    Edit post{" "}
-                  </button>
+                    Confirm Edit{" "}
+                  </button>) : null}
+                  <button type = "button" onClick={() => {
+                    changeclick(fan.id)
+                    }}>Update</button>
                 </form>
               </div>
             );

@@ -1,402 +1,327 @@
 header {
-    font-size: xx-large;
-    font-family: "Yanone Kaffeesatz", sans-serif;
-    padding-bottom: 1em;
-  }
-  body {
-    font-family: "Yanone Kaffeesatz", sans-serif;
-    display: flex;
-    justify-content: center;
-    background-color: #9f9f9f;
-    /* height: 100vh;
-    width: 100vw; */
-    overflow: hidden;
-  }
-  .headerBox {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .navBox {
-    display: flex;
-    justify-content: center;
-    font-family: "Yanone Kaffeesatz", sans-serif;
-    flex-direction: row;
-    height: 10vh;
-  }
-  
-  nav {
-    padding: 5px;
-    justify-content: space-between;
-    margin: 5px;
-    flex-direction: row;
-    display: flex;
-  }
-  
-  .navItem {
-    display: flex;
-    height: fit-content;
-    flex-direction: column;
-    padding: 1em;
-    margin: 5px;
-    color: rgb(40, 113, 144);
-    border-radius: 1em;
-    text-decoration: none;
-    justify-content: space-evenly;
-    -webkit-filter: drop-shadow(5px 5px 5px rgba(92, 92, 92, 0));
-  }
-  .navtext {
-    display: none;
-    margin-top: 5px;
-  }
-  
-  .navItem:hover {
-    padding: 1em;
-    margin: 5px;
-    color: rgb(255, 255, 255);
-    background-color: rgb(40, 113, 144);
-    border-radius: 1em;
-    -webkit-filter: drop-shadow(5px 5px 5px rgb(92, 92, 92));
-    height: fit-content;
-    width: fit-content;
-    content: "store";
-  }
-  
-  .navItem:hover > .navtext {
-    display: block;
-    color: white;
-    margin-top: 5px;
-  }
-  
-  .loginBoxBox {
-    margin-top: 10em;
-    display: flex;
-    justify-content: center;
-  }
-  
-  form {
-    justify-content: center;
-    display: grid;
-    font-family: "Yanone Kaffeesatz", sans-serif;
-    font-size: large;
-    width: fit-content;
-  }
-  input {
-    display: flex;
-    justify-content: center;
-    border-radius: 1em;
-  }
-  
-  .loginInput {
-    margin-top: 3em;
-    justify-content: center;
-  }
-  .registerButton {
-    margin: 10px;
-    color: rgb(255, 255, 255);
-    background-color: rgb(40, 113, 144);
-    border-radius: 1em;
-    transition: 0.5s;
-    -webkit-filter: drop-shadow(10px 10px 10px rgb(0, 0, 0));
-    width: fit-content;
-  }
-  .registerButton:before {
-    content: "Sign up now!";
-  }
-  .registerButton:hover {
-    cursor: pointer;
-    padding-right: 24px;
-    padding-left: 8px;
-  }
-  .registerButton:hover:after {
-    opacity: 1;
-    right: 10px;
-  }
-  .registerButton:after {
-    content: "  »";
-    position: absolute;
-    opacity: 0;
-    right: -20px;
-    transition: 0.5s;
-    color: rgb(255, 255, 255);
-  }
-  
-  .adminButton {
-    margin: 10px;
-    color: rgb(255, 255, 255);
-    background-color: rgb(40, 113, 144);
-    border-radius: 1em;
-    transition: 0.5s;
-    -webkit-filter: drop-shadow(10px 10px 10px rgb(0, 0, 0));
-    width: fit-content;
-  }
-  
-  .adminButton:hover {
-    cursor: pointer;
-    padding-right: 24px;
-    padding-left: 8px;
-  }
-  .adminButton:hover:after {
-    opacity: 1;
-    right: 10px;
-  }
-  .adminButton:after {
-    content: "  »";
-    position: absolute;
-    opacity: 0;
-    right: -20px;
-    transition: 0.5s;
-    color: rgb(255, 255, 255);
-  }
-  
-  .submitButton {
-    margin: 10px;
-    color: rgb(255, 255, 255);
-    background-color: rgb(40, 113, 144);
-    border-radius: 1em;
-    transition: 0.5s;
-    -webkit-filter: drop-shadow(10px 10px 10px rgb(0, 0, 0));
-    width: fit-content;
-  }
-  .submitButton:before {
-    content: "Submit";
-  }
-  .submitButton:hover {
-    cursor: pointer;
-    padding-right: 24px;
-    padding-left: 8px;
-  }
-  
-  .submitButton:hover:after {
-    opacity: 1;
-    right: 10px;
-  }
-  .submitButton:after {
-    content: "  »";
-    position: absolute;
-    opacity: 0;
-    right: -20px;
-    transition: 0.5s;
-    color: rgb(255, 255, 255);
-  }
-  
-  .checkoutButton {
-    margin: 10px;
-    color: rgb(255, 255, 255);
-    background-color: rgb(40, 113, 144);
-    border-radius: 1em;
-    transition: 0.5s;
-    -webkit-filter: drop-shadow(10px 10px 10px rgb(0, 0, 0));
-    width: fit-content;
-  }
-  .checkoutButton:before {
-    content: "Checkout";
-  }
-  .checkoutButton:hover {
-    cursor: pointer;
-    padding-right: 24px;
-    padding-left: 8px;
-  }
-  
-  .checkoutButton:hover:after {
-    opacity: 1;
-    right: 10px;
-  }
-  .checkoutButton:after {
-    content: "  »";
-    position: absolute;
-    opacity: 0;
-    right: -20px;
-    transition: 0.5s;
-    color: rgb(255, 255, 255);
-  }
-  
-  input:required:focus {
-    border: 2px solid rgb(0, 153, 255);
-    outline: none;
-  }
-  
-  .usernameInput {
-    margin-bottom: 0.25em;
-  }
-  
-  .passwordInput {
-    margin-bottom: 0.25em;
-  }
-  
-  input {
-    margin-bottom: 1em;
-  }
-  .loginInput {
-    border-radius: 1em;
-  }
-  form {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    width: fit-content;
-  }
-  .registerBox {
-    margin-top: 10em;
-    display: flex;
-    justify-content: center;
-  }
-  button {
-    border-radius: 1em;
-    background-color: rgb(40, 113, 144);
-    color: white;
-  }
-  .fanPics {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background-color: white;
-    border: 2px solid black;
-    margin: 5px;
-  }
-  .circular--landscape img {
-    width: auto;
-    height: 100%;
-    margin-left: -50px;
-  }
-  .productsBox {
-    display: flex;
-    align-items: center;
-    width: 90vw;
-    height: 78vh;
-    overflow: scroll;
-    padding: auto;
-    flex-direction: column;
-  }
-  
-  .productsBox::-webkit-scrollbar {
-    display: none;
-  }
-  /* ::-webkit-scrollbar {
-    display: none;
-  } */
-  
-  .productBox {
-    border: 2px solid black;
-    border-radius: 1em;
-    width: 80vw;
-    padding: 1vh 1vw;
-    margin: 2vh 2vw;
-    display: flex;
-  }
-  .productBox:hover {
-    border: 2px solid black;
-    border-radius: 1em;
-    width: 80vw;
-    padding: 1vh 1vw;
-    margin: 2vh 2vw;
-    display: flex;
-    background-image: linear-gradient(50deg, white, rgb(89, 194, 233));
-    cursor: pointer;
-  }
-  .descriptions {
-    display: flex;
-    flex-direction: column;
-  }
-  .image {
-    display: flex;
-  }
-  .key {
-    display: flex;
-    width: 100%;
-  }
-  
-  .userStuff {
-    display: flex;
-    align-items: left;
-    width: 90vw;
-    height: 80vh;
-    overflow: scroll;
-    padding: auto;
-    flex-direction: column;
-  }
-  button {
-    cursor: pointer;
-  }
-  
-  .singleProdApp {
-    display: flex;
-    align-items: center;
-    width: 90vw;
-    height: 69vh;
-    /* overflow: scroll; */
-    padding: auto;
-    flex-direction: column;
-  }
-  .singleProdBox {
-    border: 2px solid black;
-    border-radius: 1em;
-    width: fit-content;
-    height: fit-content;
-    overflow: hidden;
-    margin: 2vh 2vw;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-  }
-  .singleProdPhoto {
-    width: 200px;
-    height: 200px;
-    border-radius: 150rem;
-  }
-  .singleProd {
-    display: flex;
-    align-items: center;
-    /* width: 90vw;
-    height: 40vh; */
-    overflow: hidden;
-    padding: 40px;
-    flex-direction: column;
-  }
-  
-  .prodBar {
-    border: 2px solid rgb(196, 27, 27);
-    height: 15vh;
-    width: fit-content;
-    margin-top: 25px;
-    border-radius: 1em;
-    /* overflow-y: scroll; */
-    overflow: scroll;
-    flex-direction: row;
-    margin: 25px;
-    align-content: center;
-  }
-  
-  .prodBarBox {
-    border: 2px solid rgb(0, 0, 0);
-    width: 90%;
-    height: fit-content;
-    border-radius: 1em;
-    display: flex;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    /* justify-content: center; */
-    flex-direction: row;
-    align-items: center;
-    align-content: center;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    margin: 5px;
-  }
-  
-  .prodBarBox::-webkit-scrollbar {
-    border-radius: 2em;
-    background-color: rgb(99, 99, 99);
-    /* height: 10px; */
-  }
-  
-  .prodBarBox::-webkit-scrollbar-thumb {
-    border-radius: 1em;
-    background-color: rgb(40, 113, 144);
-  }
-  
-  .prodBox {
-    border-right: 1px solid rgb(0, 0, 0);
-    margin-left: 4px;
-  }
+  font-size: xx-large;
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  padding-bottom: 1em;
+}
+body {
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  display: flex;
+  justify-content: center;
+  background-color: #9f9f9f;
+  /* height: 100vh;
+  width: 100vw; */
+  overflow: hidden;
+}
+.headerBox {
+  display: flex;
+  justify-content: center;
+}
+
+.navBox {
+  display: flex;
+  justify-content: center;
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  flex-direction: row;
+  height: 10vh;
+}
+
+nav {
+  padding: 5px;
+  justify-content: space-between;
+  margin: 5px;
+  flex-direction: row;
+  display: flex;
+}
+
+.navItem {
+  display: flex;
+  height: fit-content;
+  flex-direction: column;
+  padding: 1em;
+  margin: 5px;
+  color: rgb(40, 113, 144);
+  border-radius: 1em;
+  text-decoration: none;
+  justify-content: space-evenly;
+  -webkit-filter: drop-shadow(5px 5px 5px rgba(92, 92, 92, 0));
+}
+.navtext {
+  display: none;
+  margin-top: 5px;
+}
+
+.navItem:hover {
+  padding: 1em;
+  margin: 5px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(40, 113, 144);
+  border-radius: 1em;
+  -webkit-filter: drop-shadow(5px 5px 5px rgb(92, 92, 92));
+  height: fit-content;
+  width: fit-content;
+  content: "store";
+}
+
+.navItem:hover > .navtext {
+  display: block;
+  color: white;
+  margin-top: 5px;
+}
+
+.loginBoxBox {
+  margin-top: 10em;
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  justify-content: center;
+  display: grid;
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-size: large;
+  width: fit-content;
+  background-color: ;
+}
+input {
+  display: flex;
+  justify-content: center;
+  border-radius: 1em;
+}
+
+.loginInput {
+  margin-top: 3em;
+  justify-content: center;
+}
+.registerButton {
+  margin: 10px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(40, 113, 144);
+  border-radius: 1em;
+  transition: 0.5s;
+  -webkit-filter: drop-shadow(10px 10px 10px rgb(0, 0, 0));
+  width: fit-content;
+}
+.registerButton:before {
+  content: "Sign up now!";
+}
+.registerButton:hover {
+  cursor: pointer;
+  padding-right: 24px;
+  padding-left: 8px;
+}
+.registerButton:hover:after {
+  opacity: 1;
+  right: 10px;
+}
+.registerButton:after {
+  content: "  »";
+  position: absolute;
+  opacity: 0;
+  right: -20px;
+  transition: 0.5s;
+  color: rgb(255, 255, 255);
+}
+
+.adminButton {
+  margin: 10px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(40, 113, 144);
+  border-radius: 1em;
+  transition: 0.5s;
+  -webkit-filter: drop-shadow(10px 10px 10px rgb(0, 0, 0));
+  width: fit-content;
+}
+
+.adminButton:hover {
+  cursor: pointer;
+  padding-right: 24px;
+  padding-left: 8px;
+}
+.adminButton:hover:after {
+  opacity: 1;
+  right: 10px;
+}
+.adminButton:after {
+  content: "  »";
+  position: absolute;
+  opacity: 0;
+  right: -20px;
+  transition: 0.5s;
+  color: rgb(255, 255, 255);
+}
+
+.submitButton {
+  margin: 10px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(40, 113, 144);
+  border-radius: 1em;
+  transition: 0.5s;
+  -webkit-filter: drop-shadow(10px 10px 10px rgb(0, 0, 0));
+  width: fit-content;
+}
+.submitButton:before {
+  content: "Submit";
+}
+.submitButton:hover {
+  cursor: pointer;
+  padding-right: 24px;
+  padding-left: 8px;
+}
+
+.submitButton:hover:after {
+  opacity: 1;
+  right: 10px;
+}
+.submitButton:after {
+  content: "  »";
+  position: absolute;
+  opacity: 0;
+  right: -20px;
+  transition: 0.5s;
+  color: rgb(255, 255, 255);
+}
+
+.checkoutButton {
+  margin: 10px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(40, 113, 144);
+  border-radius: 1em;
+  transition: 0.5s;
+  -webkit-filter: drop-shadow(10px 10px 10px rgb(0, 0, 0));
+  width: fit-content;
+}
+.checkoutButton:before {
+  content: "Checkout";
+}
+.checkoutButton:hover {
+  cursor: pointer;
+  padding-right: 24px;
+  padding-left: 8px;
+}
+
+.checkoutButton:hover:after {
+  opacity: 1;
+  right: 10px;
+}
+.checkoutButton:after {
+  content: "  »";
+  position: absolute;
+  opacity: 0;
+  right: -20px;
+  transition: 0.5s;
+  color: rgb(255, 255, 255);
+}
+
+input:required:focus {
+  border: 2px solid rgb(0, 153, 255);
+  outline: none;
+}
+
+.usernameInput {
+  margin-bottom: 0.25em;
+}
+
+.passwordInput {
+  margin-bottom: 0.25em;
+}
+
+input {
+  margin-bottom: 1em;
+}
+.loginInput {
+  border-radius: 1em;
+}
+form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: fit-content;
+}
+.registerBox {
+  margin-top: 10em;
+  display: flex;
+  justify-content: center;
+}
+button {
+  border-radius: 1em;
+  background-color: rgb(40, 113, 144);
+  color: white;
+}
+.fanPics {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: white;
+  border: 2px solid black;
+  margin: 5px;
+}
+.circular--landscape img {
+  width: auto;
+  height: 100%;
+  margin-left: -50px;
+}
+.productsBox {
+  display: flex;
+  align-items: center;
+  width: 90vw;
+  height: 80vh;
+  overflow: scroll;
+  padding: auto;
+  flex-direction: column;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+
+.productBox {
+  border: 2px solid black;
+  border-radius: 1em;
+  width: 80vw;
+  padding: 1vh 1vw;
+  margin: 2vh 2vw;
+  display: flex;
+}
+.productBox:hover {
+  border: 2px solid black;
+  border-radius: 1em;
+  width: 80vw;
+  padding: 1vh 1vw;
+  margin: 2vh 2vw;
+  display: flex;
+  background-image: linear-gradient(50deg, white, rgb(89, 194, 233));
+  cursor: pointer;
+}
+.descriptions {
+  display: flex;
+  flex-direction: column;
+}
+.image {
+  display: flex;
+}
+.key {
+  display: flex;
+  width: 100%;
+}
+
+.userStuff {
+  display: flex;
+  align-items: left;
+  width: 90vw;
+  height: 73vh;
+  overflow: scroll;
+  padding: auto;
+  flex-direction: column;
+}
+button{
+  cursor: pointer;
+}
+.productsBox2 {
+  display: flex;
+  align-items: left;
+  width: 60vw;
+  height: 80vh;
+  overflow: scroll;
+  padding: auto;
+  flex-direction: column;
+  border: 1px black solid
+}
